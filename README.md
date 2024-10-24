@@ -8,36 +8,31 @@ El analizador sigue un enfoque descendente predictivo, construyendo una tabla pr
 
 El archivo principal contiene una clase GramaticaLL1, que incluye los siguientes componentes:
 
-    producciones: Un diccionario que almacena las reglas de producción de la gramática.
-    first: Un diccionario que almacena los conjuntos FIRST de los símbolos no terminales.
-    follow: Un diccionario que almacena los conjuntos FOLLOW de los no terminales.
-    tabla_predictiva: La tabla LL(1) generada para el análisis predictivo.
-    no_terminales: Un conjunto de los símbolos no terminales de la gramática.
-    terminales: Un conjunto de los símbolos terminales de la gramática.
+    - producciones: Un diccionario que almacena las reglas de producción de la gramática.
+    - first: Un diccionario que almacena los conjuntos FIRST de los símbolos no terminales.
+    - follow: Un diccionario que almacena los conjuntos FOLLOW de los no terminales.
+    - tabla_predictiva: La tabla LL(1) generada para el análisis predictivo.
+    - no_terminales: Un conjunto de los símbolos no terminales de la gramática.
+    - terminales: Un conjunto de los símbolos terminales de la gramática.
 
 ## Métodos principales
 
-    agregar_produccion(no_terminal, produccion): Agrega una producción a la gramática. Toma como argumentos el no terminal y su respectiva producción (una lista de símbolos).
-
-    calcular_first(simbolo): Calcula el conjunto FIRST de un símbolo (terminal o no terminal).
-
-    calcular_follow(inicial): Calcula los conjuntos FOLLOW de todos los no terminales. El símbolo inicial de la gramática es pasado como argumento.
-
-    construir_tabla_predictiva(): Crea la tabla predictiva a partir de los conjuntos FIRST y FOLLOW.
-
-    analizar(cadena): Realiza el análisis sintáctico de una cadena de entrada utilizando la tabla predictiva. Retorna True si la cadena es válida, o False si no lo es.
-
-    tokenizar(cadena): Convierte una cadena de entrada en tokens, separando identificadores y símbolos terminales.
+    - agregar_produccion(no_terminal, produccion): Agrega una producción a la gramática. Toma como argumentos el no terminal y su respectiva producción (una lista de símbolos).
+    - calcular_first(simbolo): Calcula el conjunto FIRST de un símbolo (terminal o no terminal).
+    - calcular_follow(inicial): Calcula los conjuntos FOLLOW de todos los no terminales. El símbolo inicial de la gramática es pasado como argumento.
+    - construir_tabla_predictiva(): Crea la tabla predictiva a partir de los conjuntos FIRST y FOLLOW.
+    - analizar(cadena): Realiza el análisis sintáctico de una cadena de entrada utilizando la tabla predictiva. Retorna True si la cadena es válida, o False si no lo es.
+    - tokenizar(cadena): Convierte una cadena de entrada en tokens, separando identificadores y símbolos terminales.
 
 ## Flujo de ejecución
 
-    Definición de la gramática: Se crean las reglas de producción para una gramática LL(1) que reconoce expresiones aritméticas básicas con los operadores +, *, paréntesis y identificadores (id).
+Definición de la gramática: Se crean las reglas de producción para una gramática LL(1) que reconoce expresiones aritméticas básicas con los operadores +, *, paréntesis y identificadores (id).
 
-    Cálculo de los conjuntos FIRST y FOLLOW: Para cada no terminal de la gramática, se calculan los conjuntos FIRST y FOLLOW.
+Cálculo de los conjuntos FIRST y FOLLOW: Para cada no terminal de la gramática, se calculan los conjuntos FIRST y FOLLOW.
 
-    Construcción de la tabla predictiva: Utilizando los conjuntos FIRST y FOLLOW, se genera una tabla predictiva que define cómo debe proceder el análisis basado en el símbolo de entrada actual y el tope de la pila de análisis.
+Construcción de la tabla predictiva: Utilizando los conjuntos FIRST y FOLLOW, se genera una tabla predictiva que define cómo debe proceder el análisis basado en el símbolo de entrada actual y el tope de la pila de análisis.
 
-    Análisis de una cadena: La cadena de entrada se analiza paso a paso, simulando el proceso de un parser descendente predictivo. Si la cadena sigue las reglas definidas por la gramática, se considera válida.
+Análisis de una cadena: La cadena de entrada se analiza paso a paso, simulando el proceso de un parser descendente predictivo. Si la cadena sigue las reglas definidas por la gramática, se considera válida.
 
 ## Ejecución
 
